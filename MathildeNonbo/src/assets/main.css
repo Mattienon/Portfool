@@ -1,0 +1,15 @@
+@import './base.css';
+
+
+/* Importing external CSS and defining font */
+@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Applying font family to specific elements */
+#app {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1px;
+    /* You can apply the font family to other elements as needed */
+}
+
+/* Define additional styles as needed */
