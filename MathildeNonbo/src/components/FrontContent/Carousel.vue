@@ -1,7 +1,4 @@
 <template>
-  <div class="c-contain">
-    <div class="row">
-      <div class="col">
         <div class="carousel" ref="swiperContainer">
           <div class="swiper-wrapper">
             <div class="swiper-slide" v-for="(item, index) in items" :key="index">
@@ -10,12 +7,7 @@
               </div>
             </div>
           </div>
-          <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
         </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script setup>
@@ -32,8 +24,6 @@ import image7 from '@/assets/images/after-effects.png'
 import image8 from '@/assets/images/premiere-pro.png'
 import image9 from '@/assets/images/office.png'
 
-let swiper = null; // Initialize swiper variable
-
 const items = [
   { image: image1 },
   { image: image2 },
@@ -46,30 +36,22 @@ const items = [
   { image: image9 },
 ];
 
+let swiper = null;
+
 const initSwiperIfNeeded = () => {
   if (!swiper) {
     swiper = new Swiper('.carousel', {
       slidesPerView: 'auto',
-      spaceBetween: 10, // Adjust spacing between slides
+      spaceBetween: 10,
       loop: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: false,
       },
       breakpoints: {
-        // Responsive breakpoints
-        768: {
-          // For screens wider than 768px
-          slidesPerView: 3, // Show 3 slides per view
-        },
-        480: {
-          // For screens wider than 480px
-          slidesPerView: 2, // Show 2 slides per view
-        },
-        320: {
-          // For screens wider than 320px
-          slidesPerView: 1, // Show 1 slide per view
-        },
+        768: { slidesPerView: 3 },
+        480: { slidesPerView: 2 },
+        320: { slidesPerView: 1 },
       },
     });
   }
@@ -82,45 +64,23 @@ const destroySwiperIfNeeded = () => {
   }
 };
 
-onMounted(() => {
-  initSwiperIfNeeded(); // Initialize swiper on mount
-});
+onMounted(initSwiperIfNeeded);
 
-onBeforeUnmount(() => {
-  destroySwiperIfNeeded(); // Destroy swiper on unmount
-});
+onBeforeUnmount(destroySwiperIfNeeded);
 </script>
 
-<style lang="scss"  scoped>
+<style lang="scss" scoped>
 .swiper-slide {
-  background-color: rgba(255, 192, 203, 0.436);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .card {
-  margin: 1rem;
+  width: 50%;
   border: none;
   background-color: transparent;
 }
 
-.swiper-pagination {
-  bottom: 10px;
-}
 
-@media screen and (max-width: 768px) {
-  .swiper-slide {
-    max-width: calc(50% - 20px); 
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .swiper-slide {
-    max-width: calc(100% - 20px); 
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .swiper-slide {
-    max-width: calc(100% - 10px); 
-  }
-}
 </style>

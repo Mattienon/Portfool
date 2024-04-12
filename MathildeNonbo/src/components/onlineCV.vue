@@ -204,7 +204,7 @@ const toggleAccordion = (index) => {
       // Toggle the state of the clicked accordion item
       item.expanded = !item.expanded
     } else {
-      // Close all other accordion items
+      // Close other accordions
       item.expanded = false
     }
   })

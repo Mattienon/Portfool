@@ -36,9 +36,9 @@
   ])
   
   const navigationLinks = ref([
-    { path: '/', text: 'FRONTPAGE' },
-    { path: '/Projects', text: 'PROJECTS' },
-    { path: '/CV', text: 'CV'}
+    { path: '/', text: 'Home' },
+    { path: '/Projects', text: 'Projects' },
+    { path: '/CV', text: 'Contact'}
   ])
   </script>
   
@@ -53,9 +53,10 @@
     bottom: 0;
     width: 100%;
     max-width: 100%; /* Allow footer to take full width */
-    background-color: #639acd9c;
+    background-color: #b0dceb;
     color: #fff;
     padding: 10px;
+    z-index: 1;
   }
   
   .footer-link {
@@ -66,7 +67,7 @@
   }
   
   .footer-link:hover {
-    color: #ccc;
+    color: #f3becf;
   }
   
   .social-links {
@@ -81,13 +82,15 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #9fd8eb;
+    background-color: #b0dceb;
     margin-right: 0.5rem;
     transition: background-color 0.3s ease;
   }
   
   .social-icon {
     font-size: 24px;
+    color: #f3becf
+;
   }
   
   .social-link:hover {

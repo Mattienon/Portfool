@@ -4,13 +4,17 @@
       <div class="body">
         <div v-for="(cvItem, index) in cvItems" :key="cvItem.id" :class="'card card-' + cvItem.id">
           <h3 class="contact">{{ cvItem.contact }}</h3>
-          <div v-if="cvItem.link">
+          <div v-if="cvItem.link && !isPDF(cvItem.link)">
+            <a :href="cvItem.link" class="link">{{ linkText }}</a>
+          </div>
+          <!-- Display the PDF file link -->
+          <div v-if="cvItem.link && isPDF(cvItem.link)">
             <a :href="cvItem.link" :download="isPDF(cvItem.link) ? 'CV.pdf' : null" class="link pdf">{{ linkText }}</a>
           </div>
-          <!-- Conditionally render the PDF image for item with ID 3 -->
-          <img v-if="cvItem.id === 3" :src="pdfImage" alt="pdf-image">
           <!-- Conditionally render the QR image for item with ID 4 -->
-          <img v-if="cvItem.id === 4" :src="cvItem.img" alt="qr-image">
+          <div v-if="cvItem.contact == 'Email me'">
+            <button @click="sendEmail" class="link btn btn-outline-dark">{{ cvItem.contact }}</button>
+          </div>
         </div>
       </div>
     </main>
@@ -20,33 +24,22 @@
 <script setup>
 const linkText = 'Go to';
 import pdfFile from '@/assets/WrittenCV.pdf';
-import qrimage from '@/assets/images/Portfolio.png';
-import pdfImage from '@/assets/WrittenCV.pdf'; // Path to the PDF image
 
 const cvItems = [
   { id: 1, contact: "YouTube", link: "https://www.youtube.com/channel/UCdrZ-wALt6oqYgWQrbmNSpA" },
   { id: 2, contact: "LinkedIn", link: "https://www.linkedin.com/in/mathildenonbo/" },
   { id: 3, contact: "Resume PDF", link: pdfFile },
-  { id: 4, contact: "Add me to contacts", img: qrimage }
+  { id: 4, contact: "Email me" }
 ];
 
 function isPDF(link) {
   return link.toLowerCase().endsWith('.pdf');
 }
 
-// download PDF
-function downloadPDF(pdfLink) {
-  if (isPDF(pdfLink)) {
-    
-    const anchor = document.createElement('a');
-    anchor.href = pdfLink;
-    anchor.target = '_blank';
-    anchor.download = 'CV.pdf'; // file name when downloaded
-    anchor.click();
-  }
-}
+const sendEmail = () => {
+  window.open('mailto:Mathilde.nonbo28@gmail.com?subject=Contact&body=Hello', '_blank');
+};
 </script>
-
 
 <style lang="scss" scoped>
 .body {
@@ -58,18 +51,11 @@ function downloadPDF(pdfLink) {
 }
 a{
   text-decoration: none;
-  color: black;
+  color:#000000;
+  font-size: larger;
+  padding: 10px;
 }
 
-img{
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-}
-.pdf-image{
-  color: white;
-}
 .card {
   border-radius: 20px;
   margin: 1rem;

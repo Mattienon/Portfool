@@ -1,22 +1,6 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import { ref } from 'vue'
-import logoImage from '@/assets/images/logo.png'
-import foot from './components/foot.vue';
-import SkeleSpeak from './components/SkeleSpeak.vue'
-
-
-const navigationLinks = ref([
-  { path: '/', text: 'FRONTPAGE' },
-  { path: '/Projects', text: 'PROJECTS' },
-  { path: '/CV', text: 'CV & Contact'}
-])
-</script>
-
 <template>
   <header>
     <router-link to="/" class="logo">
-      <!-- Dynamic and Responsive Image Area -->
       <h1>{{ brandName }}</h1>
       <img :src="logoImage" alt="brandImage" class="logoImage" />
     </router-link>
@@ -31,33 +15,53 @@ const navigationLinks = ref([
       </div>
     </nav>
   </header>
-  <main>
 
-      <SkeleSpeak />
-   
-  </main>
+    
+       <SkeleSpeak />
   <RouterView />
- <foot/>
-
+  
+ <foot/> 
+ 
+ <Top/>
 </template>
 
-<style lang="scss"  scoped>
-header, footer {
-  z-index: 1;
-}
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue'
 
+import logoImage from '@/assets/images/logo.png'
+import foot from './components/foot.vue';
+import SkeleSpeak from './components/SkeleSpeak.vue'
+import Top from '@/components/Top.vue';
 
+const brandName = ref("Dead Creative");
+const navigationLinks = ref([
+  { path: '/', text: 'Home' },
+  { path: '/Projects', text: 'PROJECTS' },
+  { path: '/CV', text: 'Contact'}
+])
+</script>
 
+<style lang="scss" scoped>
 header {
   display: flex;
   align-items: center;
   background-color: #f3becf79;
-
+  z-index: 1;
 }
 
 .logoImage {
   max-width: 80px;
-  padding-left: 25%;
+  margin-left: 50%;
+
+}
+h1, a{
+  color: black;
+  text-decoration: none;
+}
+
+h1{
+  display: none;
 }
 
 nav {
@@ -68,46 +72,55 @@ nav {
 }
 
 .nav-link {
-  padding: 1rem;
+  padding: 0.5rem;
   color: #000000;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .nav-link.router-link-exact-active {
   font-weight: bold;
 }
 
-/* Inline nav  hold, got a death grip on these bitches */
 .navigation-links {
   display: flex;
   align-items: center;
 }
 
-/* Responsive styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1000px) {
   header {
     flex-direction: column;
-    padding: 0;
+  
   }
   .logoImage {
     display: none;
   }
   .navbar {
-    padding: 5px;
-    flex-direction: column; /* Change direction to column on small screens */
-    align-items: center; /* Center items vertically */
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
   }
-  /* this is the space between the actual links */
-  .nav-link {
-    padding: 5%;
-  }
-
   .navigation-links {
-    display: flex; /* Show the navigation links */
-    flex-direction: column; /* Display links vertically */
-    align-items: center; /* Center items horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  .nav-link {
+      padding: 0.5rem;
+      color: #000000;
+      text-decoration: none;
+      font-size: 20px;
+      
+}
+
+  h1{
+  display:contents;
+  padding: 0%;
+  margin: 0%;
+  text-align: center;
+}
+
+
 }
 
 .btn {
@@ -117,4 +130,5 @@ nav {
   color: #4d8f9a;
   font-size: 16px;
 }
+
 </style>

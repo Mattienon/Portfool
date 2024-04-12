@@ -28,7 +28,6 @@ const backgroundImageUrl = ref(bgImage) // Initially set to image1, you can upda
   margin: auto;
   min-width: 100%;
   flex-direction: column;
-
 }
 
 .image {

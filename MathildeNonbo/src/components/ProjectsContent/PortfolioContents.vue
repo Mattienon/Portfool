@@ -88,7 +88,6 @@ const selectCategory = (category) => {
 
 <style lang="scss" scoped>
 .absolute {
-  margin: 0%;
   width: 100%;
   text-align: center;
 }
@@ -172,7 +171,7 @@ a {
   }
 
   .absolute {
-    margin-top: 15%;
+    margin-top: 5%;
   }
 }
 </style>

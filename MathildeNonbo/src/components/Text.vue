@@ -6,7 +6,6 @@
               <p>{{ TextP }}</p>
               <h1>{{ subText }}</h1>
           </div>
-          <img class="image" :src="BusiCard" alt="Image">
       </div>
   </div>
 </template>
@@ -30,19 +29,18 @@ I was passionate about it, I was doing it because I wanted to.
 
 I was doing it because in my bones I am...`);
 
-// Define a reactive variable for the image source
-const BusiCard = 'src/assets/images/Skeletons.png'; // Adjust the path as needed
+
 </script>
 
 
 <style lang="scss" scoped>
 .text-area{
-  display: flex; /* Using flexbox */
-  justify-content: center; /* Horizontally centering */
+  display: flex;
+  justify-content: center; /* Horizontally center*/
   align-items: center; /* Vertically centering */
-  padding: 4%; /* Padding around the content */
-  margin: auto; /* Centering the entire container */
-  white-space: pre-line;
+  padding: 4%; /* Padding content */
+  margin: auto; /* Center container */
+  white-space: pre-line; /* cut */
 }
 
 .card {
@@ -62,10 +60,6 @@ const BusiCard = 'src/assets/images/Skeletons.png'; // Adjust the path as needed
   padding: 5%;
 }
 
-.image {
-  display: none; /* Hide the image by default */
-}
-
 h1 {
   color: #000000;
   font-weight: 900;
@@ -77,45 +71,15 @@ p {
   font-size: 18px;
   line-height: 1.3rem;
   white-space: pre-line;
-  text-align: start;
 }
 
 @media (max-width: 900px) {
-  .card {
-      flex-direction: column; /* Change flex direction to column */
-      padding: 5%; /* Increase padding */
-  }
 
   .color {
-      border-radius: 0; /* Remove border-radius */ 
       display: none;
   }
-  
-  .color h1,
-  .color p,
-  .color h1:last-child {
-      text-align: center; /* Center align text */
-  }
-  
-  .color h1:last-child {
-      margin-top: 1rem; /* Add margin between paragraphs */
-  }
-  
-  .image {
-      display: block; /* Show the image on smaller screens */
-      width: 100%; /* Adjust width as needed */
-      max-width: 400px; /* Limit maximum width */
-      height: auto; /* Maintain aspect ratio */
-      margin-top: 2rem; /* Add margin between image and text */
-  }
-
-  h1 {
-  color: #000000;
-  font-weight: 900;
-  font-size: 3rem;
-  text-align: center;
-}
 
 }
+
 </style>
 

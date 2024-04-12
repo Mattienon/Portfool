@@ -6,19 +6,18 @@
           <h3>{{ sectionTitle2 }}</h3>
           <div class="contact-items">
             <div class="contact-item">
-              <img src="../assets/images/mail.png" width="100px">
+              <img src="../assets/images/mail.png" width="80px">
               <p>Mail: {{ contactInfo.email }}</p>
             </div>
             <div class="contact-item">
-              <img src="../assets/images/phone.png" width="100px">
+              <img src="../assets/images/phone.png" width="80px">
               <p>Phone: {{ contactInfo.phone }}</p>
             </div>
           </div>
         </section>
+      
         <ContactLinks/>
-        <div class="linkmar">
-          <onlineCV/>
-        </div>
+  
       </div>
     </div>
   </template>
@@ -26,8 +25,7 @@
   <script setup>
   import { ref } from 'vue'
   import bgImage from '../assets/images/big.png'
-  import onlineCV from '../components/onlineCV.vue';
-  import ContactLinks from '../components/FrontContent/ContactLinks.vue';
+  import ContactLinks from '../components/ProjectsContent/ContactLinks.vue';
   
   const contactInfo = {
     email: 'Mathilde.nonbo28@gmail.com',
@@ -43,23 +41,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-  }
-  
-  .contact-items {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   
   .ctl {
     width: 100%;
-    padding: 10%;
+    padding: 5%;
   }
   
-  .linkmar {
-    margin-top: 10%;
-  }
+
   
   .image {
     z-index: -1; /* Set a lower z-index to keep it behind other content */
@@ -72,9 +61,10 @@
   .contact-item {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     margin: 0 10px; /* Add margin between contact items */
   }
+
+
   </style>
   

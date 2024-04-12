@@ -16,7 +16,9 @@
     </div>
     <transition name="fade">
       <div class="speech-bubble" v-show="isHovering">
+        <div class="words">
         <p>{{ speechContent }}</p>
+      </div>
       </div>
     </transition>
   </div>
@@ -86,6 +88,10 @@ const sendEmail = () => {
   padding: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: opacity 0.5s ease; /* Smoother opacity transition */
+}
+.words{
+  display: flex;
+  align-items: center;
 }
 
 .speech-bubble::after {
