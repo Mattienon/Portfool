@@ -32,7 +32,7 @@
     phone: '+45 42792043',
   };
   
-  // Define a ref for the background image URL
+
   const backgroundImageUrl = ref(bgImage)
   </script>
   
@@ -51,18 +51,18 @@
 
   
   .image {
-    z-index: -1; /* Set a lower z-index to keep it behind other content */
+    z-index: -1; 
     display: flex;
     background-size: cover;
     background-position: center;
-    min-height: 100vh; /* Set a minimum height to ensure content visibility */
+    min-height: 100vh;
   }
   
   .contact-item {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 0 10px; /* Add margin between contact items */
+    margin: 0 10px; 
   }
 
 

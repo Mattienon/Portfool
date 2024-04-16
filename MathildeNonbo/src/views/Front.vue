@@ -16,7 +16,7 @@
             <div class="des-contain">
               <h5>{{ description }}</h5>
             </div>
-            <!-- Dynamic button to navigate to CV router link -->
+            <!-- Button to CV via routerlink-->
             <router-link to="/cv" class="btn btn-light btn-bitch">{{ btnText }}</router-link>
           </div>
         </div>
@@ -120,7 +120,7 @@ const backgroundImageUrl = ref(bgImage); // Background image URL
 </script>
 
 <style lang="scss"  scoped>
-
+//header area
 .headertop{
   margin-bottom: 5%;
 }
@@ -153,7 +153,7 @@ color: #f3becf;
   h3 {
   color:#f3becf;
   font-weight: 600;
-  font-size: 5em; /* Adjust the font size */
+  font-size: 5em;
   }
 
 p, h3 {
@@ -222,7 +222,7 @@ p, h3 {
 
 .content2, .content3 {
   padding-top: 0%;
-  overflow-x: hidden; //hides the carousel ext.
+  overflow-x: hidden;
   padding-bottom: 10%;
 }
 
@@ -243,7 +243,8 @@ p, h3 {
   height: 100%;
   border-radius: 15px;
 }
-/* Column text alignment */
+
+
 .sel2 {
   padding-top: 10%;
   font-size: x-large;
@@ -256,11 +257,7 @@ p, h3 {
 //end of section 2
 //caorusel padding... im just not allowed to call it a carousel without it breaking
 
-//makes the big pink skill text hover
-.hover-item {
-  transition: transform 0.2s ease;
-}
-
+//makes pink text hover upwards
 .hover-item:hover {
   transform: translateY(-5px); /* Adjust the amount of translation */
 }

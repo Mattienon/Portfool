@@ -15,25 +15,23 @@
       </div>
     </nav>
   </header>
-
-    
        <SkeleSpeak />
-  <RouterView />
-  
- <foot/> 
- 
+    <RouterView />
+  <foot/> 
  <Top/>
 </template>
 
 <script setup>
+//imported
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
-
 import logoImage from '@/assets/images/logo.png'
 import foot from './components/foot.vue';
 import SkeleSpeak from './components/SkeleSpeak.vue'
 import Top from '@/components/Top.vue';
 
+
+//nav area content
 const brandName = ref("Dead Creative");
 const navigationLinks = ref([
   { path: '/', text: 'Home' },
@@ -86,7 +84,7 @@ nav {
   display: flex;
   align-items: center;
 }
-
+//responsive media styles
 @media screen and (max-width: 1000px) {
   header {
     flex-direction: column;
@@ -123,12 +121,6 @@ nav {
 
 }
 
-.btn {
-  display: flex;
-  font-style: bold;
-  align-items: center;
-  color: #4d8f9a;
-  font-size: 16px;
-}
+
 
 </style>

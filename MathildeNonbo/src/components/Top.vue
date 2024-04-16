@@ -10,13 +10,11 @@
   import { ref } from 'vue';
   import { Icon } from '@iconify/vue';
   
-  // Define props for customizing the button text
+
   const buttonText = ref('Beam me up, Scotty!');
-  
-  // Define the arrow-up icon
   const arrowUpIcon = ref('bi:arrow-up');
   
-  // Scroll functionality
+  // Scroll functions
   const goToTop = () => {
     window.scrollTo({
       top: 0,
@@ -41,7 +39,7 @@
   }
   
   .arrow {
-    margin-right: 5px; /* Add some spacing between icon and text */
+    margin-right: 5px; 
     color: solid black;
   }
 

@@ -13,6 +13,7 @@
 <script setup>
 import { ref } from 'vue';
 
+//text area inputs
 const TextT = ref('THE SKELETON');
 const subText = ref('D E A D - C R E A T I V E');
 const TextP = ref(`“But why the little skeleton?”

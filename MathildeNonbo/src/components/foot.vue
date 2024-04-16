@@ -1,8 +1,6 @@
 <template>
     <footer class="footer">
-      <!-- Show social media links on all screen sizes -->
       <div class="social-links">
-        <!-- Generate social media links dynamically -->
         <a
           v-for="(socialLink, index) in socialMediaLinks"
           :key="index"
@@ -13,7 +11,6 @@
         </a>
       </div>
   
-      <!-- Show navigation links only on larger screens -->
       <div class="navigation-links">
         <RouterLink
           v-for="(link, index) in navigationLinks"
@@ -45,14 +42,14 @@
   <style lang="scss" scoped>
   .footer {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    justify-content: space-between; /* Distribute items evenly */
+    flex-wrap: wrap; 
+    justify-content: space-between; 
     align-items: center;
     font-size: 16px;
     position: fixed;
     bottom: 0;
     width: 100%;
-    max-width: 100%; /* Allow footer to take full width */
+    max-width: 100%; 
     background-color: #b0dceb;
     color: #fff;
     padding: 10px;
@@ -89,7 +86,7 @@
   
   .social-icon {
     font-size: 24px;
-    color: #f3becf
+    color: #ffffff
 ;
   }
   
@@ -99,12 +96,12 @@
   
   @media screen and (max-width: 768px) {
     .navigation-links {
-      display: none; /* Hide navigation links on smaller screens */
+      display: none; /* Hide links on small screens */
     }
   
     .social-links {
-      justify-content: center; /* Center align social media links */
-      margin-top: 1rem; /* Add space between social media links and footer */
+      justify-content: center;
+      margin-top: 1rem; 
       margin: auto;
 
     }

@@ -4,7 +4,7 @@
       <h1>{{ pageTitle }}</h1>
       <h2>{{ subTitle }}</h2>
       <div class="row">
-        <!-- First column for accordion section -->
+        <!-- First column accordion section -->
         <div class="col-md-6">
           <div class="accordion-container">
             <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -14,6 +14,7 @@
                     class="accordion-button"
                     type="button"
                     :class="{
+                      //accordion selection
                       collapsed: !item.expanded,
                       box1: item.title === 'Experience',
                       box2: item.title === 'Volunteer',
@@ -45,7 +46,7 @@
           </div>
         </div>
 
-        <!-- Second column for content -->
+        <!-- The expand about me box-->
         <div class="col-md-6">
           <div class="boxdecor">
             <div class="content">
@@ -59,14 +60,11 @@
                 <button class="btn btn-dark btn2" >
                   <a :href="pdfFile" :download="isPDF(pdfFile) ? 'CV.pdf' : null" class="link pdf">
                   {{ Download }}</a>
-                  
                 </button>
               </div>
             </div>
           </div>
         </div>
-
-    
       </div>
     </div>
   </div>
@@ -76,8 +74,8 @@
 import { ref } from 'vue'
 
 const pageTitle = ref('Online CV')
-const Download =ref('PDF')
 import pdfFile from '@/assets/WrittenCV.pdf';
+//pdf file
 
 const shortText = ref('A little About me')
 const longText = ref(`My name is Mathilde, I strive to learn new things every day and understand different cultures with an exploratory approach.\n
@@ -201,7 +199,6 @@ const accordionItems = ref([
 const toggleAccordion = (index) => {
   accordionItems.value.forEach((item, i) => {
     if (i === index) {
-      // Toggle the state of the clicked accordion item
       item.expanded = !item.expanded
     } else {
       // Close other accordions
@@ -210,21 +207,9 @@ const toggleAccordion = (index) => {
   })
 }
 
-
+//pdf
 function isPDF(link) {
   return link.toLowerCase().endsWith('.pdf');
-}
-
-// download PDF
-function downloadPDF(pdfLink) {
-  if (isPDF(pdfLink)) {
-    
-    const anchor = document.createElement('a');
-    anchor.href = pdfLink;
-    anchor.target = '_blank';
-    anchor.download = 'CV.pdf'; // file name when downloaded
-    anchor.click();
-  }
 }
 
 </script>

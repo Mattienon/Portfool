@@ -1,22 +1,25 @@
 <template>
   <!-- background image behind everything else no touhcy touhcy -->
   <div class="image" :style="{ backgroundImage: 'url(' + backgroundImageUrl + ')' }">
-    <!-- ^^NO TOUCHY -->
     <div class="content">
     <Text/>
+    <MMDontent/>
     <PortfolioContents />
+    
 </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import bgImage from '@/assets/images/big.png'
-import PortfolioContents from '../components/ProjectsContent/PortfolioContents.vue'
+import bgImage from '../assets/images/big.png'
+import PortfolioContents from '../components/ProjectsContent/PortfolioContents.vue';
 import Text from '../components/Text.vue';
+import MMDontent from '../components/ProjectsContent/MMDontent.vue';
+//background image
+const backgroundImageUrl = ref(bgImage) 
 
-// Define a ref for the background image URL
-const backgroundImageUrl = ref(bgImage) // Initially set to image1, you can update it dynamically
+
 </script>
 
 <style lang="scss" scoped>
@@ -31,13 +34,11 @@ const backgroundImageUrl = ref(bgImage) // Initially set to image1, you can upda
 }
 
 .image {
-  /* Ensure z-index works */
-  z-index: -1; /* Set a lower z-index to keep it behind other content */
+  z-index: -1;
   display: flex;
   background-size: cover;
   background-position: center;
-  min-height: 100vh; /* Set a minimum height to ensure content visibility */
-  /* Additional styles for .image can be added here */
+  min-height: 100vh; 
 }
 </style>
 

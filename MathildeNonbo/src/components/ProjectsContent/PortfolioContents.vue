@@ -3,7 +3,7 @@
     <h2>{{ subTitle }}</h2> 
     
 
-    <!-- Category Selector using buttons -->
+    <!-- category selectors -->
     <div class="btn-group">
       <button @click="selectCategory('all')" :class="{ active: selectedCategory === 'all' }" class="btn btn-outline-secondary">{{ allText }}</button>
       <button @click="selectCategory('Digital')" :class="{ active: selectedCategory === 'Digital' }" class="btn btn-outline-secondary">{{ Digital }}</button>
@@ -16,7 +16,7 @@
           <p>{{ portfolioItem.title }}</p>
           <p>{{ portfolioItem.description }}</p>
 
-          <!-- Display image if available -->
+          <!-- Display image if its there -->
           <template v-if="portfolioItem.image">
             <img :src="portfolioItem.image" alt="" />
           </template>
@@ -46,18 +46,20 @@ import image6 from '@/assets/images/Skeletub.jpeg'
 import image7 from '@/assets/images/bd.jpeg'
 import image8 from '@/assets/images/Skeletons.png'
 import image9 from '@/assets/images/Face.png'
-
+import image10 from '@/assets/images/Paint1.png'
+import image11 from '@/assets/images/Paint2.png'
+//category names
 const allText = ref('All')
 const Digital = ref('Digital')
 const HandDrawn = ref('Hand Drawn')
-
+//if not image
 const noImage = ref('Oh no! No image available.')
 const noImageimg = '@/assets/skelemand.svg'
-
+//title
 const subTitle = ref('Arts & Illustrations')
 
 const portfolioItems = ref([
-  { id: 1, title: 'Fruit', description: 'An apple a day or something', image: image1, category: 'Digital', icon: '' },
+  { id: 1, title: 'Fruit', description: 'An apple a day or something', image: image1, category: 'Digital', },
   { id: 2, title: 'Smilla (my cat)', description: 'As grogu & angry...naturally', image: image2, category: 'Digital' },
   { id: 3, title: 'Logo', description: '', image: image3, category: 'Digital' },
   { id: 4, title: 'shish-kitty', description: 'The worst kebab imaginable', image: image4, category: 'Digital' },
@@ -65,7 +67,9 @@ const portfolioItems = ref([
   { id: 6, title: 'Skeletub', description: '', image: image6, category: 'Hand Drawn' },
   { id: 7, title: 'BD-1', description: 'Cutest droid in the galaxy', image: image7, category: 'Hand Drawn' },
   { id: 8, title: 'Business Card art', description: 'My busy card', image: image8, category: 'Digital' },
-  { id: 9, title: 'Business Card art', description: 'My busy card', image: image9, category: 'Hand Drawn' }
+  { id: 9, title: 'Business Card art', description: 'My busy card', image: image9, category: 'Hand Drawn' },
+  { id: 10, title: '', description: '', image: image10, category: 'Hand Drawn' },
+  { id: 11, title: '', description: '', image: image11, category: 'Hand Drawn' },
 ])
 
 // Selected category
@@ -90,6 +94,7 @@ const selectCategory = (category) => {
 .absolute {
   width: 100%;
   text-align: center;
+  margin-top: -5%;
 }
 
 .masonry-grid {
@@ -150,9 +155,8 @@ a {
   display: flex;
   justify-content: center;
   margin: auto;
-  width: 80%;
+  width: 70%;
 }
-
 .btn {
   margin: 0 5px;
   outline: none;
@@ -170,8 +174,6 @@ a {
     column-count: 1;
   }
 
-  .absolute {
-    margin-top: 5%;
-  }
+ 
 }
 </style>
